@@ -1,0 +1,12 @@
+{
+  "type": "Simulated DOM, wallet and API; not a real MetaMask test",
+  "passed": 6,
+  "checks": [
+    "Invalid and zero amounts rejected; one wei preserved exactly",
+    "Wallet rejection shown without sending",
+    "Wallet switches to Sepolia",
+    "Wrong network blocks submission",
+    "Non-organizer withdrawal blocked in UI",
+    "Donation submits once and shows confirmed receipt"
+  ]
+}

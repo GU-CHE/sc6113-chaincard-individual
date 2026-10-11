@@ -1,0 +1,19 @@
+{
+  "network": "LOCAL Ganache (not public Sepolia)",
+  "compiler": "0.8.30+commit.73712a01.Emscripten.clang",
+  "checks": [
+    "Organizer is deployer",
+    "Zero donation rejected",
+    "Donation updates totals and emits event",
+    "Unauthorized withdrawal rejected",
+    "Zero withdrawal rejected",
+    "Excess withdrawal rejected",
+    "Organizer withdrawal updates balance and event",
+    "Untracked direct ETH transfer rejected",
+    "Reentrant withdrawal blocked",
+    "Rejected recipient preserves accounting"
+  ],
+  "passed": 10,
+  "donation": "0xfd7799ecbe73975f988ef62b945fa6cf49830f25e8a516c69db95da14c9ecf37",
+  "withdrawal": "0x51d77db56f184b7b3a6b170c771f434c74a624421bd555648512eec8ff534ba8"
+}

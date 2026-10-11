@@ -1,0 +1,43 @@
+test_dashboard_reads_real_contract_and_events (test_backend.BackendTests.test_dashboard_reads_real_contract_and_events) ... ok
+test_invalid_hash (test_backend.BackendTests.test_invalid_hash) ... ok
+test_pending_hash (test_backend.BackendTests.test_pending_hash) ... ok
+test_rpc_failure_is_not_success (test_backend.BackendTests.test_rpc_failure_is_not_success) ... [2026-10-11 16:00:32,027] ERROR in app: Dashboard read failed
+Traceback (most recent call last):
+  File "/Users/Admin/Documents/ChatGPT/SC613/individual-assignment/app.py", line 57, in dashboard
+    c = contract()
+        ^^^^^^^^^^
+  File "/Users/Admin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Admin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Admin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+RuntimeError: offline
+ok
+test_source_assets_and_security_headers (test_backend.BackendTests.test_source_assets_and_security_headers) ... /Users/Admin/Documents/ChatGPT/SC613/individual-assignment/tests/test_backend.py:45: ResourceWarning: unclosed file <_io.BufferedReader name='/Users/Admin/Documents/ChatGPT/SC613/individual-assignment/static/Donation.json'>
+  self.assertEqual(self.client.get('/Donation.json').status_code, 200)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/Admin/Documents/ChatGPT/SC613/individual-assignment/tests/test_backend.py:46: ResourceWarning: unclosed file <_io.BufferedReader name='/Users/Admin/Documents/ChatGPT/SC613/individual-assignment/static/vendor/ethers.umd.min.js'>
+  self.assertEqual(self.client.get('/vendor/ethers.umd.min.js').status_code, 200)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/Admin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/case.py:589: ResourceWarning: unclosed file <_io.BufferedReader name='/Users/Admin/Documents/ChatGPT/SC613/individual-assignment/static/index.html'>
+  if method() is not None:
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_success_receipt (test_backend.BackendTests.test_success_receipt) ... ok
+test_unconfigured_contract_disables_app (test_backend.BackendTests.test_unconfigured_contract_disables_app) ... [2026-10-11 16:00:32,052] ERROR in app: Dashboard read failed
+Traceback (most recent call last):
+  File "/Users/Admin/Documents/ChatGPT/SC613/individual-assignment/app.py", line 57, in dashboard
+    c = contract()
+        ^^^^^^^^^^
+  File "/Users/Admin/Documents/ChatGPT/SC613/individual-assignment/app.py", line 28, in contract
+    raise ValueError("Contract deployment is not configured")
+ValueError: Contract deployment is not configured
+ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.412s
+
+OK

@@ -1,0 +1,129 @@
+{
+  "compiler": "0.8.30+commit.73712a01.Emscripten.clang",
+  "evmVersion": "shanghai",
+  "optimizerRuns": 200,
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "donor",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "Donated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "organizer",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "Withdrawn",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "donate",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "donatedBy",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "organizer",
+      "outputs": [
+        {
+          "internalType": "address payable",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalDonated",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalWithdrawn",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "withdraw",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x60a0604052348015600e575f5ffd5b50336080526080516104fc6100385f395f818160c501528181610193015261026201526104fc5ff3fe608060405260043610610053575f3560e01c8062b37044146100575780632e1a7d4d1461007e5780634b3197131461009f57806361203265146100b4578063cdaa6b2c146100ff578063ed88c68e1461012a575b5f5ffd5b348015610062575f5ffd5b5061006b5f5481565b6040519081526020015b60405180910390f35b348015610089575f5ffd5b5061009d61009836600461045d565b610132565b005b3480156100aa575f5ffd5b5061006b60015481565b3480156100bf575f5ffd5b506100e77f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b039091168152602001610075565b34801561010a575f5ffd5b5061006b610119366004610474565b60026020525f908152604090205481565b61009d610346565b60035460ff161561017b5760405162461bcd60e51b815260206004820152600e60248201526d1499595b9d1c985b9d0818d85b1b60921b60448201526064015b60405180910390fd5b6003805460ff19166001179055336001600160a01b037f000000000000000000000000000000000000000000000000000000000000000016146101f15760405162461bcd60e51b815260206004820152600e60248201526d4f7267616e697a6572206f6e6c7960901b6044820152606401610172565b5f811180156102005750478111155b61023d5760405162461bcd60e51b815260206004820152600e60248201526d125b9d985b1a5908185b5bdd5b9d60921b6044820152606401610172565b8060015f82825461024e91906104a1565b90915550506040515f906001600160a01b037f0000000000000000000000000000000000000000000000000000000000000000169083908381818185875af1925050503d805f81146102bb576040519150601f19603f3d011682016040523d82523d5f602084013e6102c0565b606091505b50509050806103035760405162461bcd60e51b815260206004820152600f60248201526e151c985b9cd9995c8819985a5b1959608a1b6044820152606401610172565b60405182815233907f7084f5476618d8e60b11ef0d7d3f06914655adb8793e28ff7f018d4c76d505d59060200160405180910390a250506003805460ff19169055565b60035460ff161561038a5760405162461bcd60e51b815260206004820152600e60248201526d1499595b9d1c985b9d0818d85b1b60921b6044820152606401610172565b6003805460ff19166001179055346103e45760405162461bcd60e51b815260206004820152601760248201527f416d6f756e74206d75737420626520706f7369746976650000000000000000006044820152606401610172565b345f5f8282546103f491906104a1565b9091555050335f90815260026020526040812080543492906104179084906104a1565b909155505060405134815233907f2a01595cddf097c90216094025db714da3f4e5bd8877b56ba86a24ecead8e5439060200160405180910390a26003805460ff19169055565b5f6020828403121561046d575f5ffd5b5035919050565b5f60208284031215610484575f5ffd5b81356001600160a01b038116811461049a575f5ffd5b9392505050565b808201808211156104c057634e487b7160e01b5f52601160045260245ffd5b9291505056fea2646970667358221220ce41ac968e8bfdf97f4446f05fbf5d7315bfcbe4c0182aa06c220d3c8cf8882664736f6c634300081e0033"
+}

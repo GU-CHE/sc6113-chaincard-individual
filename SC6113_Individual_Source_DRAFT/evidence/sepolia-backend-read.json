@@ -1,0 +1,15 @@
+{
+  "environment": "Public Sepolia RPC via Flask test client",
+  "dashboard_status": 200,
+  "dashboard": {
+    "balance_wei": "0",
+    "history_from_block": 11890506,
+    "history_limited": false,
+    "latest_block": 11890517,
+    "organizer": "0xc738E8Ec4d828679e953A47D996f177bDe5C9D36",
+    "total_donated_wei": "0",
+    "total_withdrawn_wei": "0",
+    "transactions": []
+  },
+  "deployment_creation_tx_correctly_excluded": true
+}

@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0d1220"><title>ChainCard · 透明捐款</title><link rel="stylesheet" href="styles.css"><script src="vendor/ethers.umd.min.js" defer></script><script src="app.js" defer></script></head>
+<body><main class="shell">
+<header class="topbar"><div class="brand"><span class="brand-mark">⬡</span> ChainCard</div><span class="network">● Sepolia 测试网</span></header>
+<section class="hero"><p class="eyebrow">SC6113 · INDIVIDUAL ASSIGNMENT</p><h1>让每一笔捐款<br>都有迹可循</h1><p class="intro">一项单一公益筹款流程的课堂原型：捐款进入合约，组织者提款到自己的钱包，记录公开可核对。仅使用无实际价值的测试 ETH；不代表真实慈善组织。</p></section>
+<section class="panel" aria-labelledby="campaign-heading"><div class="section-head"><span class="step">01</span><h2 id="campaign-heading">课堂公益基金</h2></div>
+<div class="stats"><div><span>累计捐款</span><strong id="donated">—</strong></div><div><span>合约余额</span><strong id="balance">—</strong></div><div><span>累计提款</span><strong id="withdrawn">—</strong></div></div>
+<p class="hint">单位：测试 ETH。组织者有权提款；链上记录不能证明线下资金用途。捐款不可退款。</p>
+<p class="details">合约：<a id="contract-link" target="_blank" rel="noopener noreferrer">尚未配置</a><br>组织者：<span id="organizer">—</span></p>
+<p id="data-status" class="status" role="status" aria-live="polite"></p><button id="refresh-button" class="secondary">刷新链上数据</button></section>
+<section class="panel" aria-labelledby="donate-heading"><div class="section-head"><span class="step">02</span><h2 id="donate-heading">连接钱包并捐款</h2></div>
+<button id="connect-button" class="secondary">连接 MetaMask</button><p id="wallet-status" class="status" role="status" aria-live="polite">手机请在 MetaMask 内置浏览器打开本页。</p>
+<form id="donate-form"><label for="donate-amount">捐款金额（测试 ETH）</label><div class="input-row"><input id="donate-amount" type="text" inputmode="decimal" autocomplete="off" placeholder="例如 0.001" required><button id="donate-button" type="submit" disabled>确认捐款</button></div></form>
+<p class="hint">钱包会显示交易详情和 Gas 费用，确认后才会发送。地址、金额及交易记录公开可见。</p>
+<div id="withdraw-area" hidden><h3>组织者提款</h3><form id="withdraw-form"><label for="withdraw-amount">提款金额（测试 ETH）</label><div class="input-row"><input id="withdraw-amount" type="text" inputmode="decimal" autocomplete="off" placeholder="不超过合约余额" required><button id="withdraw-button" type="submit" disabled>确认提款</button></div></form></div>
+<p id="tx-status" class="status" role="status" aria-live="polite"></p><a id="tx-link" hidden target="_blank" rel="noopener noreferrer">在 Sepolia Etherscan 查看交易 ↗</a> <button id="clear-pending" class="secondary" type="button" hidden>停止跟踪这笔交易</button>
+</section>
+<section class="panel" aria-labelledby="history-heading"><div class="section-head"><span class="step">03</span><h2 id="history-heading">公开交易记录</h2></div><p id="history-note" class="hint">已确认捐款与提款的最新 30 条记录。</p><div id="transaction-list" class="transaction-list"></div></section>
+<footer>Sepolia 测试 ETH · 请勿输入私钥或助记词</footer></main></body></html>

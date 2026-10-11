@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: sc6113-chaincard-individual
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --bind 0.0.0.0:$PORT --workers 2 --threads 4 --timeout 120 app:app
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.8
+      - key: RPC_URL
+        value: https://ethereum-sepolia-rpc.publicnode.com
+      - key: CONTRACT_ADDRESS
+        value: 0x407299ccD74cE3C20aEf9Cd90cD46DF1e6600731
+      - key: DEPLOYMENT_BLOCK
+        value: "11890506"
