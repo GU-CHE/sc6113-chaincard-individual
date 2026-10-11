@@ -95,14 +95,23 @@ def transaction(tx_hash):
             tx = w3.eth.get_transaction(tx_hash)
         except TransactionNotFound:
             return jsonify(status="pending", tx_hash=tx_hash)
-        if not tx.get("to") or tx["to"].lower() != c.address.lower():
-            return jsonify(error="该交易不属于本应用合约。"), 404
         try:
             receipt = w3.eth.get_transaction_receipt(tx_hash)
         except TransactionNotFound:
             return jsonify(status="pending", tx_hash=tx_hash)
-        return jsonify(status="success" if receipt["status"] == 1 else "failed",
-                       tx_hash=tx_hash, block=receipt["blockNumber"])
+        # Smart wallets may wrap a call in a transaction sent to another address.
+        # Failed receipts are terminal even when they have no campaign logs.
+        if receipt["status"] == 0:
+            return jsonify(status="failed", tx_hash=tx_hash, block=receipt["blockNumber"])
+        event_topics = {Web3.keccak(text="Donated(address,uint256)"),
+                        Web3.keccak(text="Withdrawn(address,uint256)")}
+        campaign_event = any(log["address"].lower() == c.address.lower()
+                             and log["topics"] and bytes(log["topics"][0]) in event_topics
+                             for log in receipt["logs"])
+        direct = tx.get("to") and tx["to"].lower() == c.address.lower()
+        if not direct and not campaign_event:
+            return jsonify(error="该交易未包含本应用合约的成功操作。"), 404
+        return jsonify(status="success", tx_hash=tx_hash, block=receipt["blockNumber"])
     except Exception:
         app.logger.exception("Transaction read failed")
         return jsonify(error="无法确认交易状态，请稍后重试。"), 503
